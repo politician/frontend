@@ -11,8 +11,8 @@ blocks:
     task:
       prologue:
         commands:
-          - nvm use
           - checkout
+          - nvm use
           - cache restore node-modules-$(checksum package-lock.json),node-modules-
       jobs:
         - name: Run Yarn
@@ -27,8 +27,8 @@ blocks:
     task:
       prologue:
         commands:
-          - nvm use
           - checkout
+          - nvm use
           - cache restore node-modules-$(checksum package-lock.json),node-modules-
       jobs:
         - name: Build PWA
