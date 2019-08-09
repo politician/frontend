@@ -1,0 +1,15 @@
+{
+  "vulnerabilities": [],
+  "ok": true,
+  "dependencyCount": 8,
+  "org": "repohodler",
+  "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.13.5\nignore: {}\npatch: {}\n",
+  "isPrivate": true,
+  "licensesPolicy": null,
+  "packageManager": "yarn",
+  "ignoreSettings": null,
+  "summary": "No known vulnerabilities",
+  "filesystemPolicy": false,
+  "uniqueCount": 0,
+  "path": "/Users/romain/Projects/saas/frontend"
+}

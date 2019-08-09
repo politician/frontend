@@ -1,0 +1,36 @@
+{
+  "@quasar/testing-quality": {
+    "options": [
+      "scripts"
+    ]
+  },
+  "@quasar/testing": {
+    "harnesses": [
+      "unit-jest",
+      "e2e-webdriver",
+      "quality",
+      "security",
+      "security-antivuln"
+    ]
+  },
+  "@quasar/testing-e2e-webdriver": {
+    "options": [
+      "scripts"
+    ]
+  },
+  "@quasar/testing-security": {
+    "options": [
+      "zap_local"
+    ],
+    "zapbrowser": "Chrome"
+  },
+  "@quasar/testing-security-antivuln": {},
+  "@quasar/testing-unit-jest": {
+    "babel": "babelrc",
+    "options": [
+      "scripts",
+      "SFC",
+      "majestic"
+    ]
+  }
+}
