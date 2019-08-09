@@ -19,9 +19,6 @@ blocks:
           commands:
             - yarn
             - cache store node-modules-$(checksum package-lock.json) node_modules
-        - name: Quasar
-          commands:
-            - npm install -g @quasar/cli
 
   - name: 🧱 Build site
     task:
@@ -33,7 +30,7 @@ blocks:
       jobs:
         - name: Build PWA
           commands:
-            - quasar build -m pwa
+            - npx quasar build -m pwa
             - cache store pwa-build dist/pwa
 
 promotions:

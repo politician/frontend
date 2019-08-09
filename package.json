@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0",
+    "@quasar/cli": "^1.0.0",
     "@quasar/quasar-app-extension-icon-genie": "^1.0.1",
     "@quasar/quasar-app-extension-testing": "^1.0.0",
     "@quasar/quasar-app-extension-testing-e2e-webdriver": "^1.0.0-beta.9",
