@@ -1,0 +1,50 @@
+# .semaphore/semaphore.yml
+version: v1.0
+name: "Deployment Pipeline"
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: 🛠 Use correct node version
+    task:
+      jobs:
+        - name: NVM use .nvmrc
+          commands:
+            - checkout
+            - nvm use
+
+  - name: 📦 Install dependencies
+    task:
+      jobs:
+        - name: Yarn
+          commands:
+            - checkout
+            # Reuse dependencies from cache and avoid installing them from scratch:
+            - cache restore node-modules-$(checksum package-lock.json),node-modules-
+            - yarn
+            - cache store node-modules-$(checksum package-lock.json) node_modules
+        - name: Install Quasar
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package-lock.json),node-modules-
+            - npm install -g @quasar/cli
+
+  - name: 🧱 Build site
+    task:
+      jobs:
+        - name: Build PWA
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package-lock.json),node-modules-
+            - quasar build -m pwa
+            - cache store pwa-build dist/pwa
+
+promotions:
+  - name: Deploy PWA to Netlify
+    pipeline_file: pwa-netlify.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - master

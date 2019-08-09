@@ -60,11 +60,47 @@ yarn run lint
 
 ## Build
 
-Build the app for production
+### Install Semaphore CLI
+
+It is essential to setup encrypted secrets for the build environment.
 
 ```bash
-quasar build
+curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 ```
+
+```bash
+sem connect ORGANIZATION.semaphoreci.com ACCESS_TOKEN
+```
+
+[Read more](https://docs.semaphoreci.com/article/53-sem-reference#download-and-install)
+
+```bash
+sem create secret netlify-authentication \
+  --file .netlify/state.json:/home/semaphore/.netlify/state.json \
+  --file ~/.netlify/config.json:/home/semaphore/.netlify/config.json
+```
+
+### Netlify Setup
+
+Install Netlify CLI
+
+```bash
+npm install netlify-cli -g
+```
+
+Connect the CLI to your Netlify account
+
+```bash
+netlify login
+```
+
+Link your project's directory with the corresponding Netlify site (or create it if it does not exist already)
+
+```bash
+netlify init
+```
+
+As of this writing, Netlify CLI will then ask you to connect to GitHub, just kill the script (CTRL+C) or enter dummy data as we don't need this.
 
 ## Quasar Enabled Features
 
