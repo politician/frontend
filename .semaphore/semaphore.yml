@@ -7,37 +7,32 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: 🛠 Use correct node version
-    task:
-      jobs:
-        - name: NVM use .nvmrc
-          commands:
-            - checkout
-            - nvm use
-
   - name: 📦 Install dependencies
     task:
+      prologue:
+        commands:
+          - nvm use
+          - checkout
+          - cache restore node-modules-$(checksum package-lock.json),node-modules-
       jobs:
-        - name: Yarn
+        - name: Run Yarn
           commands:
-            - checkout
-            # Reuse dependencies from cache and avoid installing them from scratch:
-            - cache restore node-modules-$(checksum package-lock.json),node-modules-
             - yarn
             - cache store node-modules-$(checksum package-lock.json) node_modules
-        - name: Install Quasar
+        - name: Quasar
           commands:
-            - checkout
-            - cache restore node-modules-$(checksum package-lock.json),node-modules-
             - npm install -g @quasar/cli
 
   - name: 🧱 Build site
     task:
+      prologue:
+        commands:
+          - nvm use
+          - checkout
+          - cache restore node-modules-$(checksum package-lock.json),node-modules-
       jobs:
         - name: Build PWA
           commands:
-            - checkout
-            - cache restore node-modules-$(checksum package-lock.json),node-modules-
             - quasar build -m pwa
             - cache store pwa-build dist/pwa
 
