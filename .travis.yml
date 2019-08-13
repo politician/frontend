@@ -14,9 +14,10 @@ script:
   - yarn test
   - npx quasar build -m pwa
 
-### Deploy
-before_deploy:
+before_cache:
   - npm install netlify-cli -g
+
+### Deploy
 deploy:
   provider: script
   skip_cleanup: true
