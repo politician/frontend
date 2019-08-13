@@ -144,7 +144,7 @@ module.exports = function (ctx) {
     },
 
     electron: {
-      // bundler: 'builder', // or 'packager'
+      bundler: 'builder', // or 'packager'
 
       extendWebpack (cfg) {
         // do something with Electron main process Webpack cfg
@@ -164,7 +164,33 @@ module.exports = function (ctx) {
 
       builder: {
         // https://www.electron.build/configuration/configuration
-        // appId: 'frontend'
+        appId: 'st.please.dev',
+        win: {
+          target: [
+            'portable',
+            'appx',
+            'squirrel',
+            {
+              target: 'nsis',
+              arch: ['x64', 'ia32']
+            },
+            {
+              target: 'nsis-web',
+              arch: ['x64', 'ia32']
+            }
+          ]
+        },
+        mac: {
+          category: 'public.app-category.business',
+          target: ['dmg'] // 'mas-dev', 'mas'
+        },
+        linux: {
+          target: ['AppImage', 'snap', 'deb', 'apk', 'tar.gz'],
+          category: 'Office'
+        },
+        publish: {
+          provider: 'github'
+        }
       }
     }
   }

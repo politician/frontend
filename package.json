@@ -2,13 +2,17 @@
   "name": "frontend",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Frontend",
-  "cordovaId": "com.hacktively.saas.frontend",
-  "author": "Romain Barissat <romain@barissat.com>",
+  "productName": "Frontend App",
+  "cordovaId": "st.please.dev",
+  "author": "Romain Barissat",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pleasestack/frontend.git"
+  },
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
-    "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
+    "test": "yarn lint",
     "serve:test:lighthouse": "quasar serve test/lighthouse/reports/ --port 8789",
     "audit:snyk": "snyk test --json > ./test/audits/snyk.json",
     "audit:node_modules": "yarn audit --json > ./test/audits/node_modules_audit.json",
@@ -50,13 +54,16 @@
     "babel-loader": "^8.0.6",
     "devtron": "^1.4.0",
     "electron": "^5.0.0",
+    "electron-builder": "^21.2.0",
+    "electron-builder-squirrel-windows": "^21.2.0",
     "electron-debug": "^3.0.0",
     "electron-devtools-installer": "^2.2.4",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-vue": "^5.0.0",
-    "majestic": "^1.2.24"
+    "majestic": "^1.2.24",
+    "netlify-cli": "^2.12.0"
   },
   "engines": {
     "node": ">= 8.9.0",

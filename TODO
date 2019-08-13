@@ -1,0 +1,36 @@
+https://github.com/SimulatedGREG/electron-vue/blob/master/template/.travis.yml
+
+https://github.com/SimulatedGREG/electron-vue/blob/master/template/appveyor.yml
+
+https://www.electron.build/code-signing
+
+
+https://github.com/quasarframework/app-extension-icon-genie/
+
+
+Integrate with travis open source instead of semaphore
+
+crawl the SSR version to use prerendering instead like vuepress does https://vuepress.vuejs.org/
+
+use quasar with docker for prod?
+
+use terraform
+
+storybook + quasar + figma
+
+install certificates and enable TLS
+https://blog.millerti.me/2019/01/20/using-cloudflare-ssl-certificates-with-your-netlify-site/
+
+configure service worker
+https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle
+
+https://forum.quasar-framework.org/
+
+https://hackernoon.com/how-to-push-out-saas-as-quick-as-possible-12011b049173
+https://usegravity.app/
+https://github.com/async-labs/saas
+
+CORDOVA
+https://www.twilio.com/blog/2018/07/how-to-test-your-ios-application-on-a-real-device.html
+
+

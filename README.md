@@ -38,6 +38,40 @@ quasar dev
 quasar dev -m electron
 ```
 
+Before publishing, [create a new Github token](https://github.com/settings/tokens/new) and add it as an environment variable
+
+```bash
+export GH_TOKEN=xxx
+```
+
+#### Mac
+
+Define the [category](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8) of your app in quasar.conf.js
+
+```js
+electron: {
+  builder: {
+    mac: {
+      category: "public.app-category.business";
+    }
+  }
+}
+```
+
+#### Linux
+
+Define the [category](https://specifications.freedesktop.org/menu-spec/latest/apa.html#main-category-registry) of your app in quasar.conf.js
+
+```js
+electron: {
+  builder: {
+    linux: {
+      category: "Office";
+    }
+  }
+}
+```
+
 ### Android
 
 ```bash
@@ -80,7 +114,21 @@ sem create secret netlify-authentication \
   --file ~/.netlify/config.json:/home/semaphore/.netlify/config.json
 ```
 
-### Netlify Setup
+### Install Travis CLI
+
+```bash
+gem install travis
+```
+
+```bash
+travis login --com
+```
+
+(use `--org` instead of `--com` if you are using travis-ci.org)
+
+[Read more](https://github.com/travis-ci/travis.rb#installation)
+
+### Netlify Setup (Semaphore)
 
 Install Netlify CLI
 
@@ -97,10 +145,26 @@ netlify login
 Link your project's directory with the corresponding Netlify site (or create it if it does not exist already)
 
 ```bash
-netlify init
+netlify init --manual
 ```
 
 As of this writing, Netlify CLI will then ask you to connect to GitHub, just kill the script (CTRL+C) or enter dummy data as we don't need this.
+
+### Netlify Setup (Travis)
+
+Get Netlify access token
+
+Create [Access token](https://app.netlify.com/user/applications/personal)
+
+```bash
+travis encrypt NETLIFY_AUTH_TOKEN="paste-your-token-here" --add
+```
+
+### Github Releases setup (Travis)
+
+```bash
+travis encrypt GH_TOKEN="paste-your-token-here" --add
+```
 
 ## Quasar Enabled Features
 
