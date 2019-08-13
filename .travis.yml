@@ -21,7 +21,7 @@ matrix:
     - name: "Build Windows Apps"
       os: windows
       cache: false
-      before_script:
+      before_install:
         - export NODEPATH=$(where.exe node.exe)
         - export PROJECTDIR=$(pwd)
         - export YARNCACHE=$(yarn cache dir)
