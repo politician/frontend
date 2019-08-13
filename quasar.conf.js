@@ -167,15 +167,9 @@ module.exports = function (ctx) {
         appId: 'st.please.dev',
         win: {
           target: [
-            'portable',
             'appx',
-            'squirrel',
             {
               target: 'nsis',
-              arch: ['x64', 'ia32']
-            },
-            {
-              target: 'nsis-web',
               arch: ['x64', 'ia32']
             }
           ]
@@ -185,7 +179,7 @@ module.exports = function (ctx) {
           target: ['dmg'] // 'mas-dev', 'mas'
         },
         linux: {
-          target: ['AppImage', 'snap', 'deb', 'apk', 'tar.gz'],
+          target: ['AppImage', 'deb', 'tar.gz'],
           category: 'Office'
         },
         publish: {

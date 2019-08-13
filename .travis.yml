@@ -20,6 +20,7 @@ matrix:
 
     - name: "Build Windows Apps"
       os: windows
+      cache: false
       script:
         - yarn test
         - npx quasar build --mode electron --publish always
