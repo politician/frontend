@@ -2,7 +2,7 @@ matrix:
   fast_finish: true
   include:
     - name: "Build Web App"
-      before_script:
+      install:
         - yarn add netlify-cli
       script:
         - yarn test
