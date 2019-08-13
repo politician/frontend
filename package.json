@@ -4,7 +4,7 @@
   "description": "A Quasar Framework app",
   "productName": "Frontend App",
   "cordovaId": "st.please.dev",
-  "author": "Romain Barissat",
+  "author": "Romain Barissat <barissat@gmail.com>",
   "private": true,
   "repository": {
     "type": "git",

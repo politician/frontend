@@ -1,7 +1,8 @@
 matrix:
+  fast_finish: true
   include:
-    ### PWA
-    - script:
+    - name: "Build Web App"
+      script:
         - yarn test
         - npx quasar build --mode pwa
       deploy:
@@ -11,20 +12,21 @@ matrix:
         on:
           branch: master
 
-    ### Mac Apps
-    - os: osx
+    - name: "Build Mac Apps"
+      os: osx
       script:
         - yarn test
         - npx quasar build --mode electron --publish always
 
-    ### Linux Apps
-    - os: linux
+    - name: "Build Windows Apps"
+      os: windows
       script:
         - yarn test
         - npx quasar build --mode electron --publish always
 
-    ### Windows Apps
-    - os: windows
+  allow_failures:
+    - name: "Build Linux Apps"
+      os: linux
       script:
         - yarn test
         - npx quasar build --mode electron --publish always
