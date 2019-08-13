@@ -62,8 +62,7 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-vue": "^5.0.0",
-    "majestic": "^1.2.24",
-    "netlify-cli": "^2.12.0"
+    "majestic": "^1.2.24"
   },
   "engines": {
     "node": ">= 8.9.0",
