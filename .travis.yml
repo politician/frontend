@@ -24,7 +24,6 @@ matrix:
         - yarn test
         - npx quasar build --mode electron --publish always
 
-  allow_failures:
     - name: "Build Linux Apps"
       os: linux
       script:
@@ -32,6 +31,8 @@ matrix:
         - npx quasar build --mode electron --publish always
 
 language: node_js
+node_js:
+  - "lts/dubnium"
 cache:
   yarn: true
   directories:
