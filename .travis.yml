@@ -6,13 +6,10 @@ cache:
 env:
   global:
     - NODE_ENV=test
-
-### Build
+    - secure: pRTILWUkJrI528pD8Pb4bcla3inDKLr4nhiOWlYzuXjMlKznwJbmYY2YLnWYVeat33aB0Awcu9xqkxM62evZo29aw65gAXbyyqVqyE19FKUcY9CrYMo6Rt8tlTvRj3xaSG+oEki3rIKJQ4DH/zgiwajqgLV+MuhI1o59E8SWMmJQE2ypEqK0u4Bc/kjIwfV/O+zQimRyfsJucHu1ak+JfamOYhNv5alvh+wOnYKJZzTsMn3aUD0dDuG7WxRy64cCZDpanbZudwTdZmr4HNMEA5oeAhg+R8xqRUeV9TI/wWPOnS+sVF0qnGA/Dk2iYLu69Bn6TfHmsf7JklIMdnJpi5xFSaGCk85kAUXKNfXLYszahtoxjHGZJgxQGgOi7mAoJzFf9WaKjDepSGrk0Dx1ns3EyRiz+1ye+L+PIQ3akfkcbLv4R9Io0lXg9AQNoIbIeI0WjYpFyeqNdvt8iXym1yJ8fvF386ExLR6IHYFH4qjleCsT6SEiryKwd/FTwIEWTxqhdoRpky/5SYYAvtAL9/vnGVQWhyv/XlIcG/LNAd5L57BEypkxGPpaKc1mSbyrA5iTiBy7bjYdRY3+OCcuNlmXA0IRZEmdH6ihfuBKcqnhnbdZ284dxrcBabFCodMqypkEVTff5WZW7xVfglTVpTQE3u6TWP6YLpgpDBqCZ8A=
 script:
   - yarn test
   - npx quasar build -m pwa
-
-### Deploy
 before_deploy:
   - npm install netlify-cli -g
 deploy:
